@@ -1,5 +1,5 @@
-// ── Mapbox token ── Replace with your own token from mapbox.com
-mapboxgl.accessToken = 'YOUR_MAPBOX_TOKEN_HERE';
+// ── Mapbox token ──
+mapboxgl.accessToken = 'pk.eyJ1Ijoib2luZHJpemEiLCJhIjoiY21sbzllaWcxMTI2YzNkb242NTJnbng1aCJ9.771NiwRe4c4CqePpL1LdEA';
 
 // ── Metric configuration ──
 const METRICS = {
