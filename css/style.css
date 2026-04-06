@@ -26,29 +26,38 @@ body {
    HEADER STRUCTURE
 ================================ */
 
-.topbar {
-  padding-top: 55px;
-  padding-bottom: 25px;
-  width: 100%;
-  background: white;
-}
-
 /* ===============================
-   LOGO BAR (scroll away)
+   HEADER / TOPBAR
 ================================ */
 
-.logo-bar {
+.topbar {
+  width: 100%;
   background: white;
-  height: 120px;
+  padding: 16px 0 12px;
+  text-align: center;
+}
+
+.logo-bar {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
 }
 
 .logo img {
-  height: 105px;
+  height: 40px;
 }
 
+.site-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #111827;
+  margin: 0;
+  line-height: 1;
+}
 
 /* ===============================
    NAVBAR (sticky)
@@ -57,112 +66,36 @@ body {
 .nav-bar {
   position: sticky;
   top: 0;
-
+  z-index: 100;
   background: white;
   border-bottom: 1px solid #e5e7eb;
-
-  z-index: 1000;
-
   display: flex;
   justify-content: center;
-
   padding: 18px 0;
 }
 
 .topnav {
   max-width: 1200px;
   width: 100%;
-
   display: flex;
   justify-content: center;
-  gap: 38px;
+  gap: 40px;
 }
 
 .topnav a {
-  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #374151;
   text-decoration: none;
-  font-size: 13.5px;
-  font-weight: 500;
-  color: #48556b;
-  letter-spacing: 0.04em;
-  gap: 42px;
+  text-transform: uppercase;
+  transition: color 0.15s;
 }
 
 .topnav a:hover {
-  color: #1d4ed8;
-}
-/* =====================================
-   HERO (Full Width Background)
-===================================== */
-
-/* =====================================
-   HERO (Full Width Background)
-===================================== */
-
-.hero {
-  position: relative;
-
-  /* 突破 container 限制 */
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-
-  text-align: center;
-  padding: 65px 40px;
-  margin-bottom: 40px;
-  height: 600px;
-
-  background-image: url("../images/hero-bg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
+  color: #1e3a5f;
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  z-index: 0;
-}
-
-.hero > * {
-  position: relative;
-  z-index: 1;
-}
-
-
-/* kicker */
-
-.kicker {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  letter-spacing: 1px;
-  color: #e5e5e5;
-  margin-bottom: 180px;
-}
-
-
-/* title */
-
-.hero h1 {
-  font-family: 'Inter', sans-serif;
-  font-size: 38px;
-  line-height: 1.1;
-  font-weight: 600;
-  margin-top: 50px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  line-height: 1.3;
-}
-
-
-/* buttons */
-
-.hero-actions {
-  margin-top: 50px;
-}
 /* =====================================
    MAIN CONTAINER (Single Column)
 ===================================== */
@@ -170,7 +103,7 @@ body {
 .container {
   max-width: 2000px;
   margin: 0 auto;
-  padding: 80px 40px;
+  padding: 20px 40px 40px 40px;
 }
 /* =====================================
    SECTION STRUCTURE
@@ -186,10 +119,9 @@ body {
 }
 
 h2 {
-  font-size: 30px;
-  font-weight: 80;
-  margin-bottom: 25px;
-  font-weight: 450;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -430,4 +362,239 @@ select, input[type="range"] {
     padding: 0 20px;
   }
 
+}
+
+#explore-map {
+  margin-bottom: 60px;
+}
+
+#explore-map h2 {
+  margin-bottom: 0;
+}
+/* =====================================
+   HCV DASHBOARD EMBED
+===================================== */
+
+.dashboard-embed-wrap {
+  width: 100%;
+  height: calc(100vh - 130px);
+  min-height: 540px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-top: 16px;
+}
+
+.dashboard-embed {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* =====================================
+   INDICATOR DEFINITIONS TABLE
+===================================== */
+
+.indicator-defs {
+  margin-top: 28px;
+}
+
+.indicator-defs h4 {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+.indicator-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.indicator-table thead tr {
+  background: #1e3a5f;
+  color: #fff;
+}
+
+.indicator-table th {
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.indicator-table td {
+  padding: 10px 14px;
+  vertical-align: top;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+}
+
+.indicator-table td:first-child {
+  font-weight: 600;
+  white-space: nowrap;
+  color: #111827;
+  width: 14%;
+}
+
+.indicator-table td:nth-child(2) {
+  width: 40%;
+}
+
+.indicator-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.indicator-table tbody tr:hover {
+  background: #eff6ff;
+}
+
+/* =====================================
+   INFO CARDS (accordion)
+===================================== */
+
+.info-cards {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.info-card {
+  flex: 1 1 340px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.info-card summary {
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #374151;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.info-card summary::-webkit-details-marker { display: none; }
+
+.info-card summary::after {
+  content: '+';
+  font-size: 18px;
+  font-weight: 300;
+  color: #9ca3af;
+  transition: transform 0.2s;
+}
+
+.info-card[open] summary::after {
+  content: '−';
+}
+
+.info-card summary:hover {
+  background: #f9fafb;
+}
+
+.info-card-body {
+  padding: 0 20px 20px 20px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #4b5563;
+  border-top: 1px solid #f3f4f6;
+}
+
+.info-card-body h3 {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #374151;
+  margin: 16px 0 8px;
+}
+
+.info-card-body p,
+.info-card-body li { margin-bottom: 6px; }
+
+/* =====================================
+   MODULE NAV BUTTONS
+===================================== */
+
+.module-nav {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.module-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 14px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  text-decoration: none;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.module-btn:hover {
+  border-color: #1e3a5f;
+  box-shadow: 0 2px 8px rgba(30,58,95,0.1);
+  background: #f8faff;
+}
+
+.module-btn-label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.3;
+}
+
+.module-btn-sub {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* =====================================
+   MODULE PLACEHOLDER SECTIONS
+===================================== */
+
+.module-placeholder .placeholder-window {
+  width: 100%;
+  height: 340px;
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9fafb;
+  margin-top: 16px;
+}
+
+.module-placeholder .placeholder-window span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #9ca3af;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .module-nav { grid-template-columns: repeat(3, 1fr); }
+  .hero h1 { font-size: 22px; white-space: normal; }
 }

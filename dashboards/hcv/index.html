@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>HCV Performance Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ── Top Header ── -->
+  <header id="header">
+    <div id="header-left">
+      <h1>Housing Choice Voucher Performance</h1>
+      <p>PHA-Level Efficiency Indicators · HUD VMS Data</p>
+    </div>
+    <div id="header-right">
+      <label for="metric-select">Metric</label>
+      <select id="metric-select">
+        <option value="utilization_rate">Utilization Rate</option>
+        <option value="success_rate">Success Rate</option>
+        <option value="cost_per_voucher">Cost Per Voucher</option>
+        <option value="reserve_balance">Reserve Balance</option>
+        <option value="port_in_rate">Port-In Rate</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- ── Main Layout ── -->
+  <div id="app">
+
+    <!-- Map container -->
+    <div id="map-wrap">
+      <div id="map"></div>
+      <div id="legend">
+        <div id="legend-title">Utilization Rate</div>
+        <div id="legend-scale">
+          <div id="legend-gradient"></div>
+          <div id="legend-labels">
+            <span id="legend-min"></span>
+            <span id="legend-mid"></span>
+            <span id="legend-max"></span>
+          </div>
+        </div>
+        <div id="legend-na"><span class="na-swatch"></span> No Data</div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+
+      <!-- Info panel (hover / click state) -->
+      <div id="info-panel">
+        <div id="info-default">
+          <div id="info-icon">&#9432;</div>
+          <p>Hover over a PHA to see performance indicators.</p>
+          <p>Click to lock selection and view trend.</p>
+        </div>
+        <div id="info-content" class="hidden">
+          <div id="info-header">
+            <div id="info-pha-name"></div>
+            <div id="info-pha-code"></div>
+          </div>
+          <div id="info-metrics"></div>
+        </div>
+      </div>
+
+      <!-- Time-series chart -->
+      <div id="chart-panel" class="hidden">
+        <div id="chart-header">
+          <span id="chart-pha-label"></span>
+          <span id="chart-metric-label"></span>
+        </div>
+        <div id="chart-wrap">
+          <canvas id="trend-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- Download panel -->
+      <div id="download-panel">
+        <div id="download-title">Download Data</div>
+        <div id="download-options">
+          <label><input type="checkbox" id="dl-utilization" checked> Utilization Rate</label>
+          <label><input type="checkbox" id="dl-success" checked> Success Rate</label>
+          <label><input type="checkbox" id="dl-cost"> Cost Per Voucher</label>
+          <label><input type="checkbox" id="dl-reserve"> Reserve Balance</label>
+          <label><input type="checkbox" id="dl-portin"> Port-In Rate</label>
+        </div>
+        <button id="download-btn">Export CSV</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
